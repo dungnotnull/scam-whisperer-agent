@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  typecheck:
+    name: TypeScript Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npx tsc --noEmit
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - name: Verify dist output
+        run: test -f dist/index.js && test -f dist/server.js && echo "Build OK"
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint -- --max-warnings 50
+
+  smoke-test:
+    name: Pipeline Smoke Test
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - name: Smoke test — pipeline stub mode
+        run: |
+          node -e "
+          const {runAnalysisPipeline} = require('./dist/agents/orchestrator');
+          runAnalysisPipeline({image_base64:'dGVzdA==',user_id:'smoke-test'}, Date.now())
+            .then(r => {
+              console.assert(r.request_id, 'Missing request_id');
+              console.assert(r.classification, 'Missing classification');
+              console.assert(r.explanation, 'Missing explanation');
+              console.assert(Array.isArray(r.explanation.action_steps), 'action_steps not array');
+              console.assert(typeof r.processing_time_ms === 'number', 'processing_time_ms not number');
+              console.log('✅ Pipeline smoke test passed');
+              process.exit(0);
+            })
+            .catch(e => { console.error('Pipeline failed:', e); process.exit(1); });
+          "
+
+      - name: Fast-path matcher verification
+        run: |
+          node -e "
+          const {runFastPathMatching} = require('./dist/agents/scam-classifier/pattern-matcher');
+          const r = runFastPathMatching({
+            raw_text:'Chúc mừng ông trúng thưởng Honda SH! Bấm link nhận xe. Đừng nói với ai.',
+            platform:'sms', phone_numbers:['0581234567'], urls:['https://honda-trungthuong.xyz/nhan'],
+            bank_accounts:['108000123456'], qr_code_detected:false, logos_detected:[],
+            urgency_visual_cues:[], asking_for:['money','click_link'], psychological_tactics:[],
+            image_quality:'good', language:'vi'
+          });
+          console.assert(r.suspicionScore >= 10, 'Score too low: ' + r.suspicionScore);
+          console.log('✅ Pattern matcher score:', r.suspicionScore, 'signals:', r.signals.length);
+          process.exit(0);
+          "

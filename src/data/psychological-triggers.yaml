@@ -1,0 +1,104 @@
+# Psychological Manipulation Tactic Patterns
+# Used by the fast-path pattern matcher to detect emotional manipulation.
+
+triggers:
+  - tactic: URGENCY
+    phrases:
+      - "ngay bây giờ"
+      - "trong 24 giờ"
+      - "hết hạn lúc"
+      - "khẩn cấp"
+      - "ngay lập tức"
+      - "nhanh lên"
+      - "chỉ còn hôm nay"
+      - "hết hạn hôm nay"
+      - "không còn nhiều thời gian"
+      - "phải làm ngay"
+      - "kẻo không kịp"
+      - "gấp gấp"
+      - "số lượng có hạn"
+      - "cơ hội cuối cùng"
+    signal_weight: HIGH
+    weight: 80
+
+  - tactic: FEAR
+    phrases:
+      - "bị bắt"
+      - "phạt tiền"
+      - "khóa tài khoản"
+      - "điều tra"
+      - "bị kiện"
+      - "bị khởi tố"
+      - "truy tố"
+      - "vi phạm pháp luật"
+      - "hậu quả nghiêm trọng"
+      - "bị đe dọa"
+      - "tài khoản bị xóa"
+      - "mất toàn bộ tiền"
+      - "bị đóng vĩnh viễn"
+      - "lệnh bắt"
+    signal_weight: HIGH
+    weight: 80
+
+  - tactic: AUTHORITY
+    phrases:
+      - "bộ công an"
+      - "ủy ban nhân dân"
+      - "ngân hàng nhà nước"
+      - "cơ quan nhà nước"
+      - "theo quy định"
+      - "công an phường"
+      - "cục cảnh sát"
+      - "viện kiểm sát"
+      - "tổng cục thuế"
+      - "bảo hiểm xã hội"
+      - "thông báo chính thức"
+      - "sở tư pháp"
+      - "bộ thông tin"
+    signal_weight: HIGH
+    weight: 70
+
+  - tactic: GREED
+    phrases:
+      - "trúng thưởng"
+      - "hoàn tiền"
+      - "sinh lời"
+      - "miễn phí"
+      - "đặc biệt dành cho bạn"
+      - "lãi suất cao"
+      - "lợi nhuận gấp đôi"
+      - "không cần vốn"
+      - "tặng ngay"
+      - "nhận tiền mặt"
+      - "quà tặng giá trị"
+      - "triệu phú sau một đêm"
+    signal_weight: MEDIUM
+    weight: 50
+
+  - tactic: ISOLATION
+    phrases:
+      - "đừng nói với ai"
+      - "giữ bí mật"
+      - "chỉ mình bạn biết"
+      - "đừng kể với"
+      - "bí mật nhé"
+      - "không được tiết lộ"
+      - "chưa thông báo với gia đình"
+      - "đừng cho ai biết"
+      - "nói với ai là mất cơ hội"
+      - "chỉ một mình bạn được chọn"
+    signal_weight: CRITICAL
+    weight: 150
+
+  - tactic: TRUST_BUILDING
+    phrases:
+      - "chúng tôi đã làm việc cùng nhau lâu rồi"
+      - "bạn bè giới thiệu"
+      - "đối tác tin cậy"
+      - "uy tín hàng đầu"
+      - "được nhà nước bảo trợ"
+      - "đã có hơn 10.000 khách hàng"
+      - "chứng nhận quốc tế"
+      - "được bảo hiểm bởi"
+    signal_weight: MEDIUM
+    weight: 40

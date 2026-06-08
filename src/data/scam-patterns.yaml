@@ -1,0 +1,221 @@
+# Scam Phrase Patterns — Vietnamese Context
+# Used by the fast-path pattern matcher (src/agents/scam-classifier/pattern-matcher.ts)
+
+patterns:
+  # ─── FINANCIAL FRAUD ──────────────────────────────────────────────────────
+  - category: prize_lottery
+    phrases:
+      - "chúc mừng bạn đã trúng thưởng"
+      - "chúc mừng ông đã trúng thưởng"
+      - "chúc mừng bà đã trúng thưởng"
+      - "bạn là người may mắn"
+      - "nhận ngay phần thưởng"
+      - "điền thông tin để nhận thưởng"
+      - "xe máy honda"
+      - "trúng thưởng iphone"
+      - "tiền mặt 500 triệu"
+      - "trúng giải đặc biệt"
+      - "quay số may mắn"
+      - "khách hàng may mắn"
+      - "để nhận thưởng vui lòng"
+      - "phí vận chuyển"
+      - "phí bảo hành"
+      - "thuế trước bạ"
+      - "phí xử lý hồ sơ"
+      - "chuyển khoản để nhận"
+    url_patterns:
+      - "honda-*.com"
+      - "samsung-*.net"
+      - "grab-*.vn"
+      - "vietlott-*.com"
+      - "trungthuong-*"
+    weight: 70
+
+  - category: bank_account_freeze
+    phrases:
+      - "tài khoản của bạn bị tạm khóa"
+      - "tài khoản của quý khách bị tạm khóa"
+      - "đăng nhập ngay để xác minh"
+      - "giao dịch bất thường"
+      - "bấm vào đây để mở khóa"
+      - "tài khoản sẽ bị đóng vĩnh viễn"
+      - "xác minh danh tính tại"
+      - "tài khoản bị khóa do hoạt động bất thường"
+      - "nếu không xác minh trong 24 giờ"
+      - "bảo mật tài khoản của bạn"
+      - "cập nhật thông tin tài khoản"
+    url_patterns:
+      - "vcb-*.com"
+      - "vietcombank-*.vn"
+      - "vcbonline.*"
+      - "bidv-*.com"
+      - "bidvbonus.*"
+      - "techcombank-*.net"
+      - "vpbank-*.net"
+      - "acb-*.com"
+      - "agribank-*.vn"
+      - "mbbank-*.com"
+      - "*-bao-mat.com"
+      - "*-security.com"
+    weight: 80
+
+  - category: bank_password_phishing
+    phrases:
+      - "xác nhận lại mật khẩu"
+      - "cập nhật thông tin tài khoản"
+      - "nhập otp để xác minh"
+      - "nhập mã xác thực"
+      - "cung cấp thông tin đăng nhập"
+      - "đăng nhập để kiểm tra"
+      - "xác nhận chủ tài khoản"
+      - "điền form xác minh"
+    impersonated_orgs:
+      - vietcombank
+      - bidv
+      - techcombank
+      - momo
+      - zalopay
+      - vnpay
+      - mb bank
+      - agribank
+      - acb
+      - vpbank
+    weight: 80
+
+  # ─── GOVERNMENT IMPERSONATION ─────────────────────────────────────────────
+  - category: cccd_update
+    phrases:
+      - "cập nhật căn cước công dân"
+      - "định danh điện tử vneid"
+      - "xử phạt nếu không cập nhật"
+      - "cục cảnh sát qlhc về ttxh"
+      - "cán bộ công an"
+      - "công an khu vực"
+      - "ủy ban nhân dân thông báo"
+      - "cập nhật sinh trắc học"
+      - "vneid cập nhật mới"
+      - "cài đặt vneid"
+      - "đồng bộ dữ liệu dân cư"
+      - "bị phạt nếu không làm"
+      - "mời lên công an phường"
+      - "cán bộ ubnd"
+      - "hồ sơ cccd của bạn"
+      - "đến nộp hồ sơ"
+    url_patterns:
+      - "vneid-*.vn"
+      - "vneid-*.com"
+      - "cccd-*.vn"
+      - "canh-sat-*"
+    weight: 90
+
+  - category: tax_fine
+    phrases:
+      - "nợ thuế chưa thanh toán"
+      - "bị phạt nếu không nộp ngay"
+      - "lệnh bắt giữ"
+      - "bị điều tra hình sự"
+      - "cán bộ thuế"
+      - "nợ thuế chưa nộp"
+      - "bị khởi tố hình sự"
+      - "xử lý êm nếu chuyển tiền ngay"
+      - "cán bộ thuế kiểm tra"
+      - "viện kiểm sát"
+      - "cơ quan điều tra"
+      - "tổng cục thuế thông báo"
+    weight: 90
+
+  - category: social_insurance
+    phrases:
+      - "hoàn tiền bảo hiểm xã hội"
+      - "chế độ hưu trí bị điều chỉnh"
+      - "cập nhật thông tin để nhận lương hưu"
+      - "khoản hoàn trả bảo hiểm"
+      - "nhận tiền hỗ trợ"
+      - "tiền hỗ trợ covid"
+      - "lương hưu bị tạm dừng"
+      - "bhxh thông báo"
+      - "bảo hiểm xã hội việt nam thông báo"
+      - "nhận chế độ ưu đãi"
+      - "chính sách người cao tuổi"
+    weight: 80
+
+  # ─── EMOTIONAL/RELATIONSHIP SCAMS ─────────────────────────────────────────
+  - category: grandchild_emergency
+    phrases:
+      - "con đang bị tai nạn"
+      - "cháu đang bị tai nạn"
+      - "cần tiền gấp"
+      - "mượn tạm ít tiền"
+      - "điện thoại hư, đây là số mới"
+      - "con đang ở bệnh viện"
+      - "bị công an giữ"
+      - "đang cấp cứu"
+      - "mẹ ơi con bị tai nạn"
+      - "ba ơi con cần tiền gấp"
+      - "chuyển tiền vào số tài khoản này"
+      - "phẫu thuật cần tiền"
+      - "đừng kể với ai"
+      - "giữ bí mật"
+    weight: 100
+
+  - category: romance_scam
+    phrases:
+      - "đầu tư sinh lời cao"
+      - "sàn đầu tư uy tín"
+      - "bitcoin"
+      - "crypto"
+      - "tiền kỹ thuật số"
+      - "rút vốn cần đóng phí"
+      - "bí quyết đầu tư không bao giờ lỗ"
+      - "anh chị đã kiếm được"
+      - "sàn giao dịch quốc tế"
+      - "đầu tư nhân đôi tài khoản"
+      - "lợi nhuận mỗi ngày"
+      - "kết bạn làm quen"
+      - "làm giàu không khó"
+    weight: 70
+
+  # ─── MALICIOUS LINKS & APPS ──────────────────────────────────────────────
+  - category: malicious_apk
+    phrases:
+      - "tải về ngay"
+      - "cài ứng dụng này"
+      - "tải app"
+      - ".apk"
+      - "tải file cài đặt"
+      - "cập nhật phiên bản mới nhất"
+      - "cài đặt để nhận ưu đãi"
+      - "tải app mới của"
+      - "ứng dụng chưa có trên ch play"
+      - "cho phép cài đặt từ nguồn không xác định"
+    url_patterns:
+      - "*.apk"
+      - "*/apk/*"
+      - "tai-app-*"
+      - "download-app-*"
+    weight: 90
+
+  - category: qr_code_scam
+    phrases:
+      - "quét mã để nhận"
+      - "quét qr để thanh toán"
+      - "mã qr ưu đãi"
+      - "quét mã nhận tiền"
+    weight: 60
+
+  # ─── LOWER THREAT ─────────────────────────────────────────────────────────
+  - category: spam_advertising
+    phrases:
+      - "đăng ký ngay hôm nay"
+      - "khuyến mãi đặc biệt"
+      - "giảm giá sốc"
+      - "mua ngay kẻo hết"
+      - "freeship toàn quốc"
+    weight: 20
+
+  - category: legitimate
+    phrases:
+      - "mã otp của bạn là"
+      - "số dư tài khoản"
+      - "giao dịch thành công"
+    weight: 0

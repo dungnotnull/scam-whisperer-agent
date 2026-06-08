@@ -1,0 +1,133 @@
+# Scam Taxonomy — Full Vietnamese Scam Categories
+# Primary source of truth for all scam types the agent can detect.
+# Used by the fast-path pattern matcher and referenced by the LLM classifier.
+
+scam_categories:
+  # ─── FINANCIAL FRAUD ──────────────────────────────────────────────────────
+  - id: prize_lottery
+    display_name: "Thông báo trúng thưởng giả"
+    threat_level: RED
+    key_phrases:
+      - "chúc mừng bạn/ông/bà đã trúng thưởng"
+      - "bạn là người may mắn"
+      - "nhận ngay phần thưởng"
+      - "điền thông tin để nhận thưởng"
+      - "xe máy Honda", "iPhone", "tiền mặt 500 triệu"
+    impersonated_orgs: ["Honda", "Samsung", "Vietlott", "VCB", "Coca-Cola", "Grab"]
+    psychological_tactic: "GREED"
+    plain_explanation: "Người xấu giả vờ tặng quà để lừa lấy thông tin hoặc tiền của ông/bà"
+
+  - id: bank_account_freeze
+    display_name: "Giả mạo ngân hàng — Khóa tài khoản"
+    threat_level: RED
+    key_phrases:
+      - "tài khoản của bạn bị tạm khóa"
+      - "đăng nhập ngay để xác minh"
+      - "giao dịch bất thường"
+      - "bấm vào đây để mở khóa"
+    impersonated_orgs: ["Vietcombank", "VCB", "BIDV", "Techcombank", "VPBank", "ACB", "Agribank"]
+    psychological_tactic: "FEAR"
+    plain_explanation: "Ngân hàng thật sẽ KHÔNG BAO GIỜ gửi tin nhắn yêu cầu đăng nhập qua link"
+
+  - id: bank_password_phishing
+    display_name: "Lừa lấy mật khẩu ngân hàng"
+    threat_level: RED
+    key_phrases:
+      - "xác nhận lại mật khẩu"
+      - "cập nhật thông tin tài khoản"
+      - "nhập OTP để xác minh"
+    impersonated_orgs: ["Vietcombank", "BIDV", "Techcombank", "MoMo", "ZaloPay", "VNPay"]
+    psychological_tactic: "AUTHORITY + URGENCY"
+    plain_explanation: "Không ai được hỏi mật khẩu ngân hàng của bạn, kể cả nhân viên ngân hàng"
+
+  # ─── GOVERNMENT IMPERSONATION ─────────────────────────────────────────────
+  - id: cccd_update
+    display_name: "Giả mạo Công an — Cập nhật CCCD"
+    threat_level: RED
+    key_phrases:
+      - "cập nhật căn cước công dân"
+      - "định danh điện tử VneID"
+      - "xử phạt nếu không cập nhật"
+      - "Cục Cảnh sát QLHC về TTXH"
+    impersonated_orgs: ["Bộ Công an", "UBND", "Cảnh sát khu vực", "Cục Cư dân"]
+    psychological_tactic: "AUTHORITY + FEAR + URGENCY"
+    plain_explanation: "Công an thật không bao giờ nhắn tin yêu cầu cập nhật CCCD"
+
+  - id: tax_fine
+    display_name: "Giả mạo Thuế/Cơ quan nhà nước — Nợ tiền"
+    threat_level: RED
+    key_phrases:
+      - "nợ thuế chưa thanh toán"
+      - "bị phạt nếu không nộp ngay"
+      - "lệnh bắt giữ"
+      - "bị điều tra hình sự"
+    impersonated_orgs: ["Tổng cục Thuế", "Cơ quan điều tra", "Viện kiểm sát", "Tòa án"]
+    psychological_tactic: "FEAR + AUTHORITY + URGENCY"
+    plain_explanation: "Cơ quan nhà nước luôn gửi thông báo qua bưu điện, không qua Zalo hay điện thoại"
+
+  - id: social_insurance
+    display_name: "Giả mạo BHXH — Hoàn tiền/Mất quyền lợi"
+    threat_level: RED
+    key_phrases:
+      - "hoàn tiền bảo hiểm xã hội"
+      - "chế độ hưu trí bị điều chỉnh"
+      - "cập nhật thông tin để nhận lương hưu"
+    impersonated_orgs: ["BHXH", "Bảo hiểm xã hội Việt Nam"]
+    psychological_tactic: "GREED + FEAR"
+    plain_explanation: "BHXH không gửi tin nhắn về tiền qua số điện thoại cá nhân"
+
+  # ─── EMOTIONAL/RELATIONSHIP SCAMS ─────────────────────────────────────────
+  - id: grandchild_emergency
+    display_name: "Giả vờ là con/cháu đang gặp nạn"
+    threat_level: RED
+    key_phrases:
+      - "con/cháu đang bị tai nạn"
+      - "cần tiền gấp"
+      - "đừng kể với ai"
+      - "mượn tạm ít tiền"
+      - "điện thoại hư, đây là số mới"
+    psychological_tactic: "FEAR + URGENCY + ISOLATION"
+    detection_note: "Often comes as phone call — transcript analysis needed"
+    plain_explanation: "Người xấu giả làm con/cháu để lừa tiền. Luôn gọi thẳng số điện thoại cũ của con để xác nhận"
+
+  - id: romance_scam
+    display_name: "Lừa tình cảm — Đầu tư tiền điện tử"
+    threat_level: RED
+    key_phrases:
+      - "đầu tư sinh lời cao"
+      - "anh/chị giới thiệu cho em sàn này"
+      - "bitcoin", "crypto", "tiền kỹ thuật số"
+      - "rút vốn cần đóng phí"
+    psychological_tactic: "TRUST + GREED"
+    plain_explanation: "Người lạ không bao giờ giúp bạn làm giàu. Lợi nhuận cao = rủi ro mất hết"
+
+  # ─── MALICIOUS LINKS & APPS ───────────────────────────────────────────────
+  - id: malicious_apk
+    display_name: "Link tải ứng dụng giả mạo"
+    threat_level: RED
+    key_phrases:
+      - "tải về ngay"
+      - "cài ứng dụng này"
+      - ".apk", "tải app"
+    url_patterns:
+      - "contains .apk"
+      - "not from official app stores"
+      - "shortened URL + apk"
+    plain_explanation: "Đừng bao giờ tải ứng dụng từ link lạ. Chỉ dùng CH Play hoặc App Store"
+
+  - id: qr_code_scam
+    display_name: "Mã QR giả mạo thanh toán"
+    threat_level: RED
+    detection: "visual — QR code present + payment context"
+    plain_explanation: "Kiểm tra kỹ tên người nhận trước khi quét mã QR thanh toán"
+
+  # ─── LOWER THREAT ─────────────────────────────────────────────────────────
+  - id: spam_advertising
+    display_name: "Quảng cáo spam"
+    threat_level: YELLOW
+    plain_explanation: "Đây là quảng cáo không mời mà đến. Không nguy hiểm nhưng ông/bà có thể xóa đi"
+
+  - id: legitimate
+    display_name: "Tin nhắn an toàn"
+    threat_level: GREEN
+    plain_explanation: "Tin nhắn này trông bình thường và an toàn"

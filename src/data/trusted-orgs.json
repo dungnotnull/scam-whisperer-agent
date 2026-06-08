@@ -1,0 +1,148 @@
+{
+  "_description": "Official contact information for organizations commonly impersonated by scammers. Used by the action advisor to provide legitimate hotline numbers for verification.",
+  "last_updated": "2025-06-01",
+
+  "banks": [
+    {
+      "name": "Vietcombank",
+      "short_name": "VCB",
+      "hotline": "1900 54 54 13",
+      "website": "https://www.vietcombank.com.vn",
+      "official_app": "VCB Digibank (CH Play / App Store)",
+      "notes": "Vietcombank KHÔNG BAO GIỜ gửi SMS yêu cầu đăng nhập qua link"
+    },
+    {
+      "name": "BIDV",
+      "short_name": "BIDV",
+      "hotline": "1900 92 47",
+      "website": "https://www.bidv.com.vn",
+      "official_app": "BIDV SmartBanking (CH Play / App Store)",
+      "notes": "BIDV không gửi SMS thông báo điểm thưởng sắp hết hạn"
+    },
+    {
+      "name": "Techcombank",
+      "short_name": "TCB",
+      "hotline": "1800 588 822",
+      "website": "https://www.techcombank.com.vn",
+      "official_app": "Techcombank Mobile (CH Play / App Store)"
+    },
+    {
+      "name": "VPBank",
+      "short_name": "VPB",
+      "hotline": "1900 54 54 15",
+      "website": "https://www.vpbank.com.vn",
+      "official_app": "VPBank NEO (CH Play / App Store)"
+    },
+    {
+      "name": "ACB",
+      "short_name": "ACB",
+      "hotline": "1900 54 54 86",
+      "website": "https://acb.com.vn",
+      "official_app": "ACB ONE (CH Play / App Store)"
+    },
+    {
+      "name": "Agribank",
+      "short_name": "Agribank",
+      "hotline": "1900 55 88 18",
+      "website": "https://www.agribank.com.vn",
+      "official_app": "Agribank E-Mobile Banking (CH Play / App Store)"
+    },
+    {
+      "name": "Sacombank",
+      "short_name": "STB",
+      "hotline": "1900 55 55 88",
+      "website": "https://www.sacombank.com.vn",
+      "official_app": "Sacombank Pay (CH Play / App Store)"
+    },
+    {
+      "name": "MB Bank",
+      "short_name": "MBBank",
+      "hotline": "1900 54 54 26",
+      "website": "https://www.mbbank.com.vn",
+      "official_app": "MB Bank (CH Play / App Store)"
+    },
+    {
+      "name": "TPBank",
+      "short_name": "TPB",
+      "hotline": "1900 58 58 85",
+      "website": "https://tpb.vn",
+      "official_app": "TPBank (CH Play / App Store)"
+    }
+  ],
+
+  "government_agencies": [
+    {
+      "name": "Bộ Công an",
+      "hotline": "06923.42576",
+      "website": "https://bocongan.gov.vn",
+      "key_fact": "Công an KHÔNG BAO GIỜ gọi điện yêu cầu cập nhật CCCD hoặc cài ứng dụng qua link"
+    },
+    {
+      "name": "Tổng cục Thuế",
+      "hotline": "1900 54 54 54",
+      "website": "https://www.gdt.gov.vn",
+      "key_fact": "Cơ quan thuế gửi văn bản qua bưu điện, không qua Zalo/điện thoại"
+    },
+    {
+      "name": "Bảo hiểm Xã hội Việt Nam",
+      "short_name": "BHXH",
+      "hotline": "1900 90 68",
+      "website": "https://baohiemxahoi.gov.vn",
+      "key_fact": "BHXH không gọi điện hỏi số tài khoản; tiền hưu trí chuyển tự động"
+    },
+    {
+      "name": "Ủy ban Nhân dân các cấp",
+      "short_name": "UBND",
+      "key_fact": "UBND thông báo qua giấy mời hoặc loa phường, không qua Zalo/SMS"
+    }
+  ],
+
+  "e_wallets": [
+    {
+      "name": "MoMo",
+      "hotline": "1900 54 54 41",
+      "website": "https://momo.vn",
+      "official_app": "MoMo (CH Play / App Store)"
+    },
+    {
+      "name": "ZaloPay",
+      "hotline": "1900 54 54 36",
+      "website": "https://zalopay.vn",
+      "official_app": "ZaloPay (CH Play / App Store)"
+    },
+    {
+      "name": "VNPay",
+      "hotline": "1900 55 55 77",
+      "website": "https://vnpay.vn",
+      "official_app": "VNPAY (CH Play / App Store)"
+    },
+    {
+      "name": "ViettelPay",
+      "hotline": "1800 9000",
+      "website": "https://viettelpay.vn",
+      "official_app": "ViettelPay (CH Play / App Store)"
+    }
+  ],
+
+  "application_authentication": {
+    "description": "Các ứng dụng chính phủ CHÍNH THỨC — chỉ tải từ CH Play hoặc App Store",
+    "apps": [
+      {
+        "name": "VNeID",
+        "publisher": "Bộ Công an Việt Nam",
+        "stores": "CH Play / App Store",
+        "note": "Không có phiên bản 'VNeID 2.0' hay 'VNeID cập nhật' nào khác"
+      },
+      {
+        "name": "eTax Mobile",
+        "publisher": "Tổng cục Thuế",
+        "stores": "CH Play / App Store"
+      },
+      {
+        "name": "VssID",
+        "publisher": "BHXH Việt Nam",
+        "stores": "CH Play / App Store"
+      }
+    ]
+  }
+}

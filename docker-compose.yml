@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    ports:
+      - "3000:${PORT:-3000}"
+    env_file:
+      - .env
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - ./src/data:/app/src/data:ro
+      - ./src/ml:/app/src/ml:ro
+      - ./src/prompts:/app/src/prompts:ro
+      - ./SECOND-KNOWLEDGE-BRAIN.md:/app/SECOND-KNOWLEDGE-BRAIN.md:ro
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:

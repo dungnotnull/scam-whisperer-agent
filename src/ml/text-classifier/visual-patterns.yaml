@@ -1,0 +1,73 @@
+# Visual Red Flag Patterns
+# Visual elements in screenshots that indicate potential scams.
+# Used by the Vision API prompt context and image analyzer.
+# These patterns are referenced during LLM visual analysis, not matched locally.
+
+visual_red_flags:
+  urgency_cues:
+    - description: "Red text or red banners"
+      significance: HIGH
+      context: "Scammers use red to create urgency and fear"
+    - description: "Countdown timers"
+      significance: HIGH
+      context: "Creates artificial time pressure"
+    - description: "Large bold CẢNH BÁO / WARNING text"
+      significance: HIGH
+      context: "Mimics official warning style to trigger fear"
+    - description: "Flashing or animated elements"
+      significance: MEDIUM
+      context: "Draws attention away from careful reading"
+
+  authority_cues:
+    - description: "Official-looking seals or stamps (con dấu đỏ)"
+      significance: HIGH
+      context: "Vietnamese official documents use red seals; scammers fake them"
+    - description: "Government logos (Công an, Quốc huy)"
+      significance: HIGH
+      context: "Impersonating government agencies"
+    - description: "Bank logos (VCB, BIDV, etc.)"
+      significance: HIGH
+      context: "Impersonating banks"
+    - description: "Police badge icons or blue/red police stripes"
+      significance: HIGH
+      context: "Fake police authority"
+
+  payment_cues:
+    - description: "QR codes requesting payment"
+      significance: HIGH
+      context: "QR payment scams — verify recipient name before scanning"
+    - description: "Bank account numbers prominently displayed"
+      significance: MEDIUM
+      context: "Scammers need to show where to send money"
+    - description: "Money amounts written in large font"
+      significance: MEDIUM
+      context: "Prize/refund amounts to trigger greed"
+
+  suspicious_layout:
+    - description: "Screenshot of a banking app that looks slightly different from real"
+      significance: HIGH
+      context: "Fake banking interfaces"
+    - description: "Poor quality logos (pixelated, wrong proportions)"
+      significance: MEDIUM
+      context: "Stolen and resized corporate logos"
+    - description: "Vietnamese text with unusual character errors or spacing"
+      significance: LOW
+      context: "Machine-translated scam text"
+    - description: "Multiple font styles mixed chaotically"
+      significance: MEDIUM
+      context: "Copy-pasted from different sources"
+
+  platform_specific:
+    sms:
+      - "Sender ID impersonation: 'VCB', 'BIDV' appearing as SMS sender"
+      - "Masked phone numbers (short codes not matching official bank numbers)"
+    zalo:
+      - "Unknown contact with profile photo of police/bank staff uniform"
+      - "Zalo messages with external links (especially shortened)"
+    facebook:
+      - "Fake Facebook pages with few followers but official-looking names"
+      - "Urgent comment replies on public posts"
+    email:
+      - "Sender address not matching the organization domain"
+      - "Reply-to address different from sender"
+      - "Poor formatting, excessive use of exclamation marks"

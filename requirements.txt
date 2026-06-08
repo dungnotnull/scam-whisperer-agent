@@ -1,0 +1,5 @@
+# scam-whisperer-agent Python sidecar requirements
+# Used for: image pre-processing (resize, contrast enhance, photo-of-screen detection)
+
+Pillow>=10.2.0
+numpy>=1.26.0
