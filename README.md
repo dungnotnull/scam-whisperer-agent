@@ -1,7 +1,7 @@
 # 🛡️ scam-whisperer-agent
 
 <p align="center">
-  <em>Trợ lý kỹ thuật số bảo vệ ông bà trước lừa đảo trực tuyến</em>
+  <em>A digital guardian protecting grandparents from online scams</em>
 </p>
 
 <p align="center">
@@ -11,7 +11,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/status-production%20ready-brightgreen" alt="Status">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="License">
-  <img src="https://img.shields.io/badge/language-Typescript%20%2B%20Python-blue" alt="Language">
+  <img src="https://img.shields.io/badge/language-TypeScript%20%2B%20Python-blue" alt="Language">
   <img src="https://img.shields.io/badge/platform-iOS%20%7C%20Android%20%7C%20Web-lightgrey" alt="Platform">
 </p>
 
@@ -19,25 +19,25 @@
 
 ## 💡 The Problem
 
-Bà Nguyễn Thị Lan, 72 tuổi, sống một mình ở TP.HCM. Bà nhận được tin nhắn Zalo:
+Mrs. Nguyen Thi Lan is 72 years old and lives alone in Ho Chi Minh City. She receives a Zalo message:
 
-> *"Chúc mừng bà đã trúng thưởng xe máy Honda SH. Bấm vào đây để nhận thưởng."*
+> *"Congratulations! You have won a Honda SH motorcycle. Click here to claim your prize."*
 
-Bà không chắc đây có phải thật không. Con bà đang đi làm, không thể hỏi ngay. Bà bấm vào link, nhập số tài khoản, và mất 80 triệu đồng tiền tiết kiệm.
+She's not sure if it's real. Her son is at work — she can't ask him right away. She clicks the link, enters her bank account number, and loses 80 million VND (~$3,200) of her life savings.
 
-**Đây không phải chuyện hiếm.** Theo Bộ Công an Việt Nam, 30%+ nạn nhân lừa đảo mạng là người trên 60 tuổi. Thiệt hại trung bình: 50–500 triệu đồng mỗi vụ.
+**This is not rare.** According to Vietnam's Ministry of Public Security, over 30% of online fraud victims are 60+. The average loss: 50–500 million VND ($2,000–$20,000) per incident.
 
-scam-whisperer-agent tồn tại để bà Lan có một nơi để hỏi — bất cứ lúc nào, miễn phí, không phán xét.
+scam-whisperer-agent exists so Mrs. Lan always has someone to ask — anytime, free, without judgment.
 
 ---
 
 ## 🫂 The Solution
 
-scam-whisperer-agent là một người cháu kỹ thuật số — ấm áp, kiên nhẫn, luôn sẵn sàng. Ông bà chỉ cần chụp ảnh tin nhắn, gửi lên, và ngay lập tức nhận được câu trả lời bằng **giọng nói tiếng Việt tự nhiên**:
+scam-whisperer-agent is a digital grandchild — warm, patient, always ready. Grandparents take a screenshot of a suspicious message, upload it, and immediately receive a response in a **natural Vietnamese voice**:
 
-> *"Bà ơi, đây là tin nhắn LỪA ĐẢO đó ạ. Người xấu giả vờ là Honda để lừa bà bấm vào đường dẫn và lấy tiền. Bà đừng bấm vào nhé. Bước 1: Xóa tin nhắn đó đi. Bước 2: Gọi cho con Hùng nếu bà vẫn lo. Bà hỏi trước khi bấm là rất khôn ngoan đó ạ!"*
+> *"Grandma, this is a DANGEROUS SCAM. Bad people are pretending to be Honda to trick you into clicking a link and stealing your money. Please don't click it. Step 1: Delete that message. Step 2: Call Hung if you're still worried. You did the right thing by asking first!"*
 
-Đồng thời, con Hùng nhận được thông báo qua Zalo: *"Mẹ vừa gặp một tin nhắn lừa đảo. Mẹ an toàn và đã được hướng dẫn xóa tin nhắn. Không cần lo."*
+At the same moment, Hung's phone buzzes via Zalo: *"Mom just encountered a scam message. She's safe and has been guided to delete it. No need to worry."*
 
 ---
 
@@ -97,7 +97,7 @@ scam-whisperer-agent là một người cháu kỹ thuật số — ấm áp, ki
 
 ### The "Belt and Suspenders" Detection Strategy
 
-Không một tín hiệu đơn lẻ nào là đủ. Hệ thống sử dụng **nhiều tín hiệu độc lập** và yêu cầu **đồng thuận** mới kết luận an toàn:
+No single signal is sufficient. The system uses **multiple independent signals** and requires **consensus** before declaring something safe:
 
 | Signal | Method | Speed | Role |
 |--------|--------|-------|------|
@@ -108,18 +108,18 @@ Không một tín hiệu đơn lẻ nào là đủ. Hệ thống sử dụng **n
 | LLM reasoning | Claude chain-of-thought | 1–2s | Deep semantic understanding |
 | Knowledge base | Semantic phrase search | < 50ms | Context from past scams |
 
-**Tiebreaker Logic**: Any signal > threshold → override to dangerous. User safety > false positive rate.
+**Tiebreaker Logic**: Any signal exceeding threshold → override to dangerous. User safety > false positive rate.
 
 ---
 
 ## 🧠 Scam Categories Detected
 
-| # | Category | Tiếng Việt | Threat | Victims |
-|---|----------|------------|--------|---------|
+| # | Category | Vietnamese Name | Threat | Primary Victims |
+|---|----------|----------------|--------|-----------------|
 | 1 | Prize / Lottery | Trúng thưởng giả | 🔴 | Most common on Zalo |
-| 2 | Bank Freeze | Khóa tài khoản ngân hàng | 🔴 | Vietcombank, BIDV, Techcombank |
-| 3 | Password Phishing | Lừa lấy mật khẩu | 🔴 | MoMo, ZaloPay, VNPay |
-| 4 | CCCD / VNeID | Cập nhật căn cước | 🔴 | 55–80 tuổi primary target |
+| 2 | Bank Account Freeze | Khóa tài khoản ngân hàng | 🔴 | Vietcombank, BIDV, Techcombank users |
+| 3 | Password Phishing | Lừa lấy mật khẩu | 🔴 | MoMo, ZaloPay, VNPay users |
+| 4 | CCCD / VNeID Update | Cập nhật căn cước | 🔴 | Ages 55–80 primary target |
 | 5 | Tax Fine | Nợ thuế / Phạt | 🔴 | Small business owners |
 | 6 | Social Insurance | BHXH hoàn tiền | 🔴 | Pensioners targeted |
 | 7 | Grandchild Emergency | Con cháu gặp nạn | 🔴 | Highest emotional damage |
@@ -157,27 +157,27 @@ Classification + Explanation
     · Volume: +2dB
     · RED alerts: <emphasis> with pauses
     · Step numbers: <break> between actions
-    · Numbers preprocessed: "12.500.000" → "mười hai triệu rưỡi"
+    · Numbers preprocessed: "12,500,000" → "twelve million five hundred thousand"
 ```
 
 ### Voice Input
 
-- Wake word: **"Cháu ơi"**
-- Whisper (local) for STT — works offline
-- Built-in commands: "cái này là gì", "gọi cho con", "lặp lại", "nói chậm hơn"
-- Emergency detection: "bấm vào rồi" triggers damage control path
+- Wake word: **"Cháu ơi"** (Hey grandchild)
+- Whisper (local) for speech-to-text — works offline
+- Built-in commands: "what is this", "call my son", "repeat", "speak slower"
+- Emergency detection: "I already clicked" triggers the damage control path
 
 ### Voice Profiles (8 presets)
 
 | Preset | Provider | Gender | Region |
 |--------|----------|--------|--------|
-| `north_female` | Google Wavenet-A | Female | Hà Nội |
-| `north_male` | Google Wavenet-B | Male | Hà Nội |
-| `south_female` | Google Wavenet-C | Female | TP.HCM |
-| `south_male` | Google Wavenet-D | Male | TP.HCM |
-| `fpt_south_female` | FPT.AI banmai | Female | TP.HCM |
-| `fpt_north_female` | FPT.AI lannhi | Female | Hà Nội |
-| `fpt_south_male` | FPT.AI leminh | Male | TP.HCM |
+| `north_female` | Google Wavenet-A | Female | Hanoi |
+| `north_male` | Google Wavenet-B | Male | Hanoi |
+| `south_female` | Google Wavenet-C | Female | Ho Chi Minh City |
+| `south_male` | Google Wavenet-D | Male | Ho Chi Minh City |
+| `fpt_south_female` | FPT.AI banmai | Female | Ho Chi Minh City |
+| `fpt_north_female` | FPT.AI lannhi | Female | Hanoi |
+| `fpt_south_male` | FPT.AI leminh | Male | Ho Chi Minh City |
 | `coqui_fallback` | Coqui vi-female | Female | Neutral |
 
 ---
@@ -220,16 +220,16 @@ Pairing via QR code or 6-digit code — completes in under 30 seconds.
 
 ```
 ┌─────────────────────────────────┐
-│   👵  Xin chào, Bà Lan          │
-│   Hôm nay bà có an toàn         │
+│   👵  Hello, Grandma Lan        │
+│   You're safe today             │
 │                                  │
 │   ┌─────────────────────────┐   │
-│   │   📷 HỎI CHÁU           │   │
-│   │   Chụp ảnh tin nhắn     │   │
-│   │   để kiểm tra           │   │
+│   │   📷 ASK GRANDCHILD     │   │
+│   │   Take a photo of the   │   │
+│   │   message to check      │   │
 │   └─────────────────────────┘   │
 │                                  │
-│   Hoặc nói: "Cháu ơi..."        │
+│   Or say: "Hey grandchild..."   │
 └─────────────────────────────────┘
 ```
 
@@ -248,14 +248,14 @@ Pairing via QR code or 6-digit code — completes in under 30 seconds.
 ```
 08:00 Daily
     │
-    ├── Bộ Công an (bocongan.gov.vn) ──── HTML scrape
-    ├── CATP TP.HCM (congan.tphcm.gov.vn) ─ HTML scrape
-    ├── CATP Hà Nội (congan.hanoi.gov.vn) ─ HTML scrape
-    ├── Vietcombank security page ──────── HTML scrape
-    ├── BIDV fraud alerts ─────────────── HTML scrape
-    ├── Techcombank security ──────────── HTML scrape
-    ├── antoanthongtin.vn ─────────────── RSS feed
-    └── cybersecurity.vn ─────────────── RSS feed
+    ├── Ministry of Public Security (bocongan.gov.vn) ── HTML scrape
+    ├── HCMC Police (congan.tphcm.gov.vn) ────────────── HTML scrape
+    ├── Hanoi Police (congan.hanoi.gov.vn) ───────────── HTML scrape
+    ├── Vietcombank security page ────────────────────── HTML scrape
+    ├── BIDV fraud alerts ───────────────────────────── HTML scrape
+    ├── Techcombank security ────────────────────────── HTML scrape
+    ├── antoanthongtin.vn ───────────────────────────── RSS feed
+    └── cybersecurity.vn ────────────────────────────── RSS feed
     │
     ▼
 Vietnamese keyword extraction
@@ -397,26 +397,26 @@ Response:
       "URL domain registered 2 days ago",
       "Urgency + fear psychological trigger"
     ],
-    "what_they_want": "Người xấu muốn lấy mật khẩu ngân hàng của ông bà để rút tiền",
+    "what_they_want": "Scammers want to steal your bank password to withdraw your money",
     "technical_summary": "Vietcombank impersonation SMS phishing campaign"
   },
   "explanation": {
-    "verdict_line": "Đây là tin nhắn LỪA ĐẢO NGUY HIỂM đó bà ạ!",
-    "explanation": "Người xấu giả làm Vietcombank báo tài khoản bị khóa để lừa bà bấm vào link giả và lấy mật khẩu.",
-    "familiar_comparison": "Giống như có người mặc đồng phục ngân hàng đến nhà xin mật khẩu thẻ ATM — ngân hàng thật sẽ không làm vậy.",
+    "verdict_line": "Grandma, this is a DANGEROUS SCAM!",
+    "explanation": "Bad people are pretending to be Vietcombank, saying your account is locked, to trick you into clicking a fake link and stealing your password.",
+    "familiar_comparison": "It's like someone wearing a bank uniform coming to your house asking for your ATM PIN — a real bank would never do that.",
     "action_steps": [
-      "Bà đừng bấm vào bất kỳ thứ gì trong tin nhắn đó",
-      "Xóa tin nhắn đó đi",
-      "Gọi cho con Hùng nếu bà vẫn lo"
+      "Don't click anything in that message",
+      "Delete the message",
+      "Call Hung if you're still worried"
     ],
-    "reassurance": "Bà làm đúng rồi khi hỏi trước! Người xấu giờ tinh vi lắm, ai cũng có thể bị lừa được.",
-    "educational_tip": "Ngân hàng thật sẽ không bao giờ gửi tin nhắn yêu cầu bà bấm vào link để đăng nhập đâu ạ."
+    "reassurance": "You did the right thing by asking first! Scammers are very clever — anyone could fall for this.",
+    "educational_tip": "A real bank will never send you a text message asking you to click a link to log in."
   },
   "voice_url": "data:audio/mpeg;base64,...",
   "family_alert": {
     "type": "SCAM_DETECTED",
     "threat_level": "RED",
-    "summary_vi": "Đã phát hiện tin nhắn lừa đảo: Người xấu muốn lấy mật khẩu ngân hàng..."
+    "summary_vi": "Scam detected: bank password phishing attempt"
   },
   "processing_time_ms": 4237
 }
@@ -521,7 +521,7 @@ We deliberately use **Vision API + prompt engineering + rule-based patterns** in
 1. **Scam evolution**: Vietnamese scams change weekly. Prompt + KB updates stay current indefinitely. A trained classifier would be outdated in 3 months.
 2. **No labeled dataset**: No large labeled Vietnamese scam screenshot dataset exists. Building one is a multi-year effort.
 3. **Vision complexity**: Screenshots have varying fonts, photo angles, lighting — needs a foundation model, not a CNN.
-4. **Maintenance**: A custom model needs retraining infra. A prompt update takes minutes.
+4. **Maintenance**: A custom model needs retraining infrastructure. A prompt update takes minutes.
 5. **Accuracy**: Claude's vision + reasoning already achieves near-human accuracy. There's no accuracy gap to close.
 
 ---
@@ -591,7 +591,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md). The highest-impact contribution is rep
 ## 🙏 Acknowledgments
 
 - **Anthropic** — Claude Vision & Text APIs
-- **Bộ Công an Việt Nam** — Public scam warnings
+- **Vietnam Ministry of Public Security** — Public scam warnings
 - **Vietcombank, BIDV, Techcombank** — Security advisories
 - **Cục An toàn Thông tin** — National cybersecurity guidance
 - **AARP Fraud Watch Network** — Elderly vulnerability research
@@ -600,5 +600,5 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md). The highest-impact contribution is rep
 ---
 
 <p align="center">
-  <em>Built with love for ông bà everywhere. Because everyone deserves to feel safe online.</em>
+  <em>Built with love for grandparents everywhere. Because everyone deserves to feel safe online.</em>
 </p>
