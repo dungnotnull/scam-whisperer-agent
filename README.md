@@ -1,4 +1,4 @@
-# 🛡️ scam-whisperer-agent
+<h1 align="center">🛡️ scam-whisperer-agent</h1>
 
 <p align="center">
   <em>A digital guardian protecting grandparents from online scams</em>
